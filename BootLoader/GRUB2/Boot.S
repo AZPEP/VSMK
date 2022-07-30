@@ -18,7 +18,7 @@ GRUB2会加载内核，并从这里开始引导
 //引用库
 
 #include "../../includes/BootLoader/multiboot.h"
-//#include "Kernel.h"
+
 .code32
 
 .section .multiboot

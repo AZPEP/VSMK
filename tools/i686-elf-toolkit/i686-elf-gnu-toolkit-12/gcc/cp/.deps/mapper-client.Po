@@ -1,0 +1,29 @@
+cp/mapper-client.o: ../../gcc/cp/mapper-client.cc config.h auto-host.h \
+ ../../gcc/../include/ansidecl.h ../../gcc/system.h \
+ ../../gcc/../include/safe-ctype.h ../../gcc/../include/filenames.h \
+ ../../gcc/../include/hashtab.h ../../gcc/../include/ansidecl.h \
+ /home/azpep/桌面/i686-elf-toolkit/gcc-12.1.0/build/./gmp/gmp.h \
+ ../../gcc/../include/libiberty.h ../../gcc/hwint.h \
+ ../../gcc/../libcpp/include/line-map.h ../../gcc/diagnostic-core.h \
+ bversion.h ../../gcc/diagnostic.def ../../gcc/cp/mapper-client.h \
+ ../../gcc/../libcody/cody.hh ../../gcc/intl.h \
+ ../../gcc/cp/../../c++tools/resolver.h
+config.h:
+auto-host.h:
+../../gcc/../include/ansidecl.h:
+../../gcc/system.h:
+../../gcc/../include/safe-ctype.h:
+../../gcc/../include/filenames.h:
+../../gcc/../include/hashtab.h:
+../../gcc/../include/ansidecl.h:
+/home/azpep/桌面/i686-elf-toolkit/gcc-12.1.0/build/./gmp/gmp.h:
+../../gcc/../include/libiberty.h:
+../../gcc/hwint.h:
+../../gcc/../libcpp/include/line-map.h:
+../../gcc/diagnostic-core.h:
+bversion.h:
+../../gcc/diagnostic.def:
+../../gcc/cp/mapper-client.h:
+../../gcc/../libcody/cody.hh:
+../../gcc/intl.h:
+../../gcc/cp/../../c++tools/resolver.h:
