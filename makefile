@@ -6,5 +6,8 @@ clean:
 make_build: clean
 	python3 ./tools/dir.py mkdir Build DisErr
 
-Cross_Toolkit:
+build-grub2: make_build buildBootLoader-grub2 build-other 
+	cp make_build.inc Build/makefile
+
+	make -C Build makeISO
 	
