@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/azpep/桌面/stars-os'
+make -C BootLoader/GRUB2 build
+make: Leaving directory '/home/azpep/桌面/stars-os'
+ 
