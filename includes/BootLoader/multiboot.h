@@ -8,7 +8,7 @@ Include/multiboot
 
 */
 #define BootLoader_Grub2_Common_Head 0x1BADB002   //multiboot标准头
-#define BootLoader_Grub2_Flags 0b00000000000000000000000000000111 //multiboot的第二个部分，是grub的标志位
+#define BootLoader_Grub2_Flags 0b00000000000000000000000000000011 //multiboot的第二个部分，是grub的标志位
 #define BootLoader_Grub2_CheckSum(flags)    -(BootLoader_Grub2_Common_Head+flags) //CheckSum是multiboot的第3个部分
 
 /* 

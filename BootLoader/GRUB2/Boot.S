@@ -45,16 +45,26 @@ BootLoader_Screen_Depth
     .long BootLoader_Grub2_Common_Head
     .long BootLoader_Grub2_Flags
     .long BootLoader_Grub2_CheckSum(BootLoader_Grub2_Flags)
+
+    /*
+    如果flags[16]被置位，请取消掉这段注释
+
     .long BootLoader_Multiboot_Header_Addr
     .long BootLoader_Multiboot_Load_Addr
     .long BootLoader_Multiboot_Load_End_Addr
     .long BootLoader_Multiboot_Bss_End_Addr
     .long BootLoader_Multiboot_Entry_Addr
+
+    */
+
+    /*
+    如果flags[2]被置位，请取消掉这段注释
+
     .long BootLoader_Screen_Mode_Type
     .long BootLoader_Screen_Width
     .long BootLoader_Screen_Height
     .long BootLoader_Screen_Depth
-
+    */
 .section .bss
     /* 变量段 */
     .align 16 //对齐到16整数倍字节
