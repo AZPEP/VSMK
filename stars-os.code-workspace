@@ -8,5 +8,11 @@
 			"path": "../lunaix-os"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"stdint.h": "c",
+			"stdint-gcc.h": "c",
+			"graph.h": "c"
+		}
+	}
 }

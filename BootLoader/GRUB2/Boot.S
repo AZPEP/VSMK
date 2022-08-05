@@ -76,9 +76,10 @@ BootLoader_Screen_Depth
 
 .section .text
     /* 代码段 */
-
-    /* 映照ld规定，_start为程序入口 */
-    _start:
+    .global	main
+    /* 我们在lib/Kernel_Link_Map.lds中规定，start_为程序入口 */
+    /* 按照GCC规定，main为函数入口 */
+    main:
 
         movl $stack_top,%esp //设置栈顶
         

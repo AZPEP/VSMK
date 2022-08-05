@@ -1,5 +1,5 @@
 #include <Graph.h>
-#include <stdint.h>
+#include <stdint-gcc.h>
 
 vga_attribute *Graph_Addr = Graph_EGA_Addr;
 vga_attribute Theme_Color = VGA_COLOR_BLACK;

@@ -1,1 +1,3 @@
 OSName = StarsOS
+Version = Dev
+CC=gcc
