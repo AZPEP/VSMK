@@ -1,3 +1,4 @@
+include config/makefile-build
 buildBootLoader-grub2:
 	make -C BootLoader/GRUB2 build
 
@@ -17,3 +18,11 @@ build-grub2: make_build buildBootLoader-grub2 build-other
 	make -C Build Link
 makeISO-grub2: build-grub2
 	make -C Build makeISO_grub2
+
+makeISO-grub2-debug:
+	make -C Build makeISO_grub2_debug
+debug-qemu-grub2: makeISO-grub2-debug
+	qemu-system-i386 -cdrom ./Build/Debug.iso
+
+debug-bochs-grub2:
+	bochs -f bochsrc-debug -q

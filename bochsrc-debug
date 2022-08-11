@@ -1,0 +1,3 @@
+ata0-master: type=cdrom,path="./Build/Debug.iso",status=inserted
+#clock: sync=realtime, time0=utc, rtc_sync=1
+boot: cdrom

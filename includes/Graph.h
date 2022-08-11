@@ -25,14 +25,12 @@ typedef unsigned short vga_attribute;
 
 #include "BootLoader/multiboot.h"
 
-void Graph_Set_Theme(unsigned short FontColor, unsigned short BackColor);
+void Graph_Set_Theme(vga_attribute FontColor, vga_attribute BackColor);
 
 void Graph_Put_Char(char chr);
 void Graph_Put_Str(char *str);
 void Screen_Scrool_Up();
 void Graph_Clear_Screen();
 
-#define Screen_Width BootLoader_Screen_Width
-#define Screen_Height BootLoader_Screen_Height
 
 #define Graph_EGA_Addr 0xb800

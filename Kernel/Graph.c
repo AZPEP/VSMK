@@ -1,35 +1,47 @@
 #include <Graph.h>
-#include <stdint-gcc.h>
+#include <stdint.h>
 
-vga_attribute *Graph_Addr = Graph_EGA_Addr;
+vga_attribute *Graph_Addr = 0xb8000;
 vga_attribute Theme_Color = VGA_COLOR_BLACK;
 
 uint32_t Now_Graph_Column = 0;
 uint32_t Now_Graph_Row = 0;
 
+#define Screen_Width 80
+#define Screen_Height 25
+
 void Graph_Set_Theme(unsigned short FontColor, unsigned short BackColor)
 {
 	//设置主题颜色
-	Theme_Color = (BackColor << 4 | FontColor);
+	Theme_Color = (BackColor << 4 | FontColor) << 8;
 }
 
 void Graph_Put_Char(char chr)
 {
-
-	*(Graph_Addr + Now_Graph_Column + Now_Graph_Row * Screen_Width) = (Theme_Color | chr);
-
-	Now_Graph_Column++;
-
-	if (Now_Graph_Column++ >= Screen_Width)
+	if (chr == '\n')
 	{
 		Now_Graph_Column = 0;
 		Now_Graph_Row++;
-
-		if (Now_Graph_Row++ >= Screen_Height)
+	}
+	else if (chr == '\r')
+	{
+		Now_Graph_Column = 0;
+	}
+	else
+	{
+		*(Graph_Addr + Now_Graph_Column + Now_Graph_Row * Screen_Width) = (Theme_Color | chr);
+		Now_Graph_Column++;
+		if (Now_Graph_Column >= Screen_Width)
 		{
-			Screen_Scrool_Up();
-			Now_Graph_Row--;
+			Now_Graph_Column = 0;
+			Now_Graph_Row++;
 		}
+	}
+
+	if (Now_Graph_Row >= Screen_Height)
+	{
+		Screen_Scrool_Up();
+		Now_Graph_Row--;
 	}
 }
 

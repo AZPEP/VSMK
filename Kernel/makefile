@@ -7,7 +7,7 @@ CC_FLAGS=-I$(shell ./)../includes -m32
 
 build: $(C_OBJ)
 	cp $(C_OBJ) ../Build
-
+	rm *.o
 makeISO-grub2:
 
 %.o : %.c
