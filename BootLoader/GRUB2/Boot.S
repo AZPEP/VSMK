@@ -79,23 +79,47 @@ BootLoader_Screen_Depth
     .global	main
     /* 我们在lib/Kernel_Link_Map.lds中规定，start_为程序入口 */
     /* 按照GCC规定，main为函数入口 */
+    
+    /*
+    引用列表
+
+    Kernel/Kernel_Core.c
+    _Kernel_Init 
+    _Kernel_Main
+
+    Kernel/gdt.c
+    _gdt[] 
+    _gdt_limit
+
+    */
     main:
 
         movl $stack_top,%esp //设置栈顶
-        
-        /*
-        将要填充的代码：
 
-        初始化GDT&IDT
-
-         */
-        
-        /*
-        注意,外部函数_Kernel_Init和_Kernel_SMain未编写，一旦编译会出现错误！！！
-         */
-        
         call _Kernel_Init   //初始化内核
 
+        //加载GDT
+        //这时已使用_init_gdt()初始化gdt
+        sub $0x06,%esp
+        movl $_gdt, 2(%esp)
+        movw _gdt_limit,%ax
+        movw %ax,(%esp)
+        lgdt (%esp)
+        addl $0x06,%esp
+
+        //初始化寄存器
+        movw $0x10,%cx
+        movw %cx,%ds
+        movw %cx,%es
+        movw %cx,%fs
+        movw %cx,%gs
+        movw %cx,%ss
+
+        pushw $0x08
+        pushl $_after_gdt
+
+        retf
+    _after_gdt:
         pushl %ebx
         call _Kernel_Main   //内核主程序
 

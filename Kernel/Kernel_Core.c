@@ -1,6 +1,8 @@
 #include <Graph.h>
-void _Kernel_Init(){
+#include <BootLoader/gdt.h>
 
+void _Kernel_Init(){
+	_init_gdt();
 }
 
 void _Kernel_Main(void *Info_Table){
