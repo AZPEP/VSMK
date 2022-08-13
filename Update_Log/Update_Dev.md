@@ -1,4 +1,7 @@
 # 更新日志
+## Dev.0005
+完成GDT，IDT，支持打印功能
+
 ## Dev.0004
 完善makefile,支持生成ISO
 
