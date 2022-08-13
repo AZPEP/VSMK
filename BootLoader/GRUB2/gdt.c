@@ -1,5 +1,5 @@
 #include <BootLoader/gdt.h>
-#include <stdint.h>
+#include <stdint-gcc.h>
 
 #define GDT_ENTRY 5
 

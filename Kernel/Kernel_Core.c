@@ -3,6 +3,7 @@
 
 void _Kernel_Init(){
 	_init_gdt();
+	_init_idt();
 }
 
 void _Kernel_Main(void *Info_Table){
@@ -10,4 +11,6 @@ void _Kernel_Main(void *Info_Table){
 	Graph_Clear_Screen();
 	Graph_Put_Str("Hello Stars OS!\n");
 	Graph_Put_Str("This is line 2!");
+
+	__asm__("int $0");
 }

@@ -1,5 +1,5 @@
 #include <Graph.h>
-#include <stdint.h>
+#include <stdint-gcc.h>
 
 vga_attribute *Graph_Addr = 0xb8000;
 vga_attribute Theme_Color = VGA_COLOR_BLACK;
@@ -74,7 +74,10 @@ void Graph_Clear_Screen()
 	{
 		for (uint32_t y = 0; y < Screen_Width; y++)
 		{
-			*(Graph_Addr + y * Screen_Width + x) = Theme_Color;
+			*(Graph_Addr + x * Screen_Width + y) = Theme_Color;
 		}
 	}
+
+	Now_Graph_Column=0;
+	Now_Graph_Row=0;
 }

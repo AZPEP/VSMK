@@ -105,6 +105,14 @@ BootLoader_Screen_Depth
         movw _gdt_limit,%ax
         movw %ax,(%esp)
         lgdt (%esp)
+
+        //加载IDT
+        //这时已使用_init_idt()初始化idt
+        movl $_idt, 2(%esp)
+        movw _idt_limit,%ax
+        movw %ax,(%esp)
+        lidt (%esp)
+        
         addl $0x06,%esp
 
         //初始化寄存器

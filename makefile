@@ -21,8 +21,9 @@ makeISO-grub2: build-grub2
 
 makeISO-grub2-debug:
 	make -C Build makeISO_grub2_debug
+
 debug-qemu-grub2: makeISO-grub2-debug
-	qemu-system-i386 -cdrom ./Build/Debug.iso
+	qemu-system-i386 -cdrom ./ISO/Debug.iso
 
 debug-bochs-grub2:
 	bochs -f bochsrc-debug -q
