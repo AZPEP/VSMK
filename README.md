@@ -19,9 +19,24 @@
 - [x] i686-elf-gnu 12.1.0 及以上版本
 - [x] grub 2.06 及以上版本 
 
-### 编译
+## 编译
 如果你想要使用GRUB 2.06引导，则执行以下指令
 
 ```
 make build-grub2
+```
+
+## 调试操作系统
+### 开始之前
+
+您应确保已安装以下工具
+```
+qemu
+bochs (支持单步调试)
+```
+### 调试
+在编译的基础上，如果你执行了"make build-grub2"，则可以执行以下指令：
+```
+make debug-bochs-grub2
+make debug-qemu-grub2
 ```

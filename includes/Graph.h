@@ -32,5 +32,6 @@ void Graph_Put_Str(char *str);
 void Screen_Scrool_Up();
 void Graph_Clear_Screen();
 
+void printf (const char *format, ...);
 
 #define Graph_EGA_Addr 0xb800

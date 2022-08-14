@@ -69,6 +69,12 @@ BootLoader_Screen_Depth
     /* 变量段 */
     .align 16 //对齐到16整数倍字节
 
+    /* Multiboot Info段 */
+    /*
+    mb_info:
+        .skip 4096,0
+    */
+
     /* 栈段 */
     stack_bottom:   //栈底
         .skip 16318,0
@@ -96,6 +102,10 @@ BootLoader_Screen_Depth
 
         movl $stack_top,%esp //设置栈顶
 
+        push %ebx
+        push %eax
+        call _Info_Main
+        
         call _Kernel_Init   //初始化内核
 
         //加载GDT

@@ -5,6 +5,7 @@ SECTIONS {
 
 	.text : {
 		* (.multiboot)
+		* (.MultibootInfo)
 		* (.text)
 	}
 	.bss BLOCK(4K) : {

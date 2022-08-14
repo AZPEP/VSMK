@@ -7,7 +7,7 @@ build-other:
 
 clean:
 	python3 ./tools/dir.py rmdir Build DisErr
-
+	python3 ./tools/dir.py rmdir ISO DisErr
 make_build: clean
 	python3 ./tools/dir.py mkdir Build DisErr
 
@@ -19,10 +19,10 @@ build-grub2: make_build buildBootLoader-grub2 build-other
 makeISO-grub2: build-grub2
 	make -C Build makeISO_grub2
 
-makeISO-grub2-debug:
+makeISO-grub2-debug: build-grub2
 	make -C Build makeISO_grub2_debug
 
-debug-qemu-grub2: makeISO-grub2-debug
+debug-qemu-grub2: 
 	qemu-system-i386 -cdrom ./ISO/Debug.iso
 
 debug-bochs-grub2:
