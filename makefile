@@ -23,7 +23,7 @@ makeISO-grub2-debug: build-grub2
 	make -C Build makeISO_grub2_debug
 
 debug-qemu-grub2: 
-	qemu-system-i386 -cdrom ./ISO/Debug.iso
+	qemu-system-i386 -cdrom ./ISO/Debug.iso -m size=512M
 
 debug-bochs-grub2:
 	bochs -f bochsrc-debug -q

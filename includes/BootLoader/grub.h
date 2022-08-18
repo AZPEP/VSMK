@@ -1,6 +1,7 @@
 #ifndef __GRUB_INFO_TABLE__
 #define __GRUB_INFO_TABLE__
 
+#include <stdint-gcc.h>
 /* a.out 符号表。 */
 typedef struct aout_symbol_table
 {
@@ -73,6 +74,13 @@ typedef struct multiboot_info
 } multiboot_info_t;
 
 
+typedef struct multiboot_Boot_Devices_Table_t
+{
+    uint8_t drive;
+    uint8_t part1;
+    uint8_t part2;
+    uint8_t part3;
+} multiboot_Boot_Devices_Table_t;
 
 /* 检测 FLAGS 中的位 BIT 是否被置位。 */
 #define CHECK_FLAG(flags,bit)   ((flags) & (1 << (bit)))

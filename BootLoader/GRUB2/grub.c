@@ -35,6 +35,8 @@ void _Info_Main(unsigned long magic, unsigned long addr){
     sys_mb_magic=magic;
     sys_mb_flags=mbi->flags;
 
+    Graph_Set_Theme(VGA_COLOR_WHITE,VGA_COLOR_BLACK);
+
     //flags[0]=1
     if(CHECK_FLAG(mbi->flags,0)){
         sys_mem_config=1;
@@ -51,7 +53,25 @@ void _Info_Main(unsigned long magic, unsigned long addr){
 
         sys_devices_boot_device=mbi->boot_device;
         //printf("Boot Devices=%d\n",sys_devices_boot_device);
-        Get_Boot_Devices(sys_devices_boot_device);
+        //Get_Boot_Devices(sys_devices_boot_device);
+
+        /*
+        int *p=&sys_devices_boot_device;
+
+        sys_devices_Devices_Type=*p;
+        p++;
+        sys_devices_Partten_Number_1=*p;
+        p++;
+        sys_devices_Partten_Number_2=*p;
+        p++;
+        sys_devices_Partten_Number_3=*p;
+        p++;
+        */
+
+       
+
+
+
     }
 
     //flags[2]=1
